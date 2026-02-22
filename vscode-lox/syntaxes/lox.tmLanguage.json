@@ -1,0 +1,75 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Lox",
+    "scopeName": "source.lox",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#keywords" },
+        { "include": "#constants" },
+        { "include": "#functions" },
+        { "include": "#identifiers" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [{
+                "name": "comment.line.double-slash.lox",
+                "match": "//.*$"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.double.lox",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.lox",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.lox",
+                    "match": "\\b(if|else|while|for|return|and|or|break|continue)\\b"
+                },
+                {
+                    "name": "keyword.other.lox",
+                    "match": "\\b(var|fun|class|print|this|super)\\b"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.lox",
+                    "match": "\\b(true|false|nil)\\b"
+                },
+                {
+                    "name": "constant.numeric.lox",
+                    "match": "\\b\\d+(\\.\\d+)?\\b"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "match": "\\b(fun)\\s+([a-zA-Z_]\\w*)",
+                    "captures": {
+                        "1": { "name": "keyword.other.lox" },
+                        "2": { "name": "entity.name.function.lox" }
+                    }
+                }
+            ]
+        },
+        "identifiers": {
+            "patterns": [
+                {
+                    "name": "variable.other.lox",
+                    "match": "\\b[a-zA-Z_]\\w*\\b"
+                }
+            ]
+        }
+    }
+}
