@@ -1,0 +1,60 @@
+// Lox Processing Benchmark
+// Tests CPU-heavy tasks: recursion, arithmetic, and object management.
+
+// 1. Recursive Fibonacci (Function Call & Stack Overhead)
+fun fib(n) {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+print "Benchmarking Fibonacci(30)...";
+var start = clock();
+var result = fib(30);
+var end = clock();
+print "Result:";
+print result;
+print "Elapsed (s):";
+print end - start;
+print "";
+
+// 2. Heavy Arithmetic and Loops
+print "Benchmarking 1,000,000 iterations of arithmetic...";
+start = clock();
+var sum = 0;
+for (var i = 0; i < 1000000; i = i + 1) {
+  sum = sum + i;
+  sum = sum / 1.000001;
+}
+end = clock();
+print "Sum result (normalized):";
+print sum;
+print "Elapsed (s):";
+print end - start;
+print "";
+
+// 3. Object Creation and Field Access (GC and Hash Table Stress)
+class Point {
+  init(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  distance() {
+    return (this.x * this.x + this.y * this.y);
+  }
+}
+
+print "Benchmarking 100,000 object instantiations...";
+start = clock();
+var totalDist = 0;
+for (var j = 0; j < 100000; j = j + 1) {
+  var p = Point(j, j + 1);
+  totalDist = totalDist + p.distance();
+}
+end = clock();
+print "Total distance result:";
+print totalDist;
+print "Elapsed (s):";
+print end - start;
+
+print "";
+print "Benchmark complete.";

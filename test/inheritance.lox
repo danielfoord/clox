@@ -1,0 +1,20 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+class SuperClass {
+  name() { return "super"; }
+  onlySuper() { return "only"; }
+}
+
+class SubClass < SuperClass {
+  name() { return "sub " + super.name(); }
+}
+
+var s = SubClass();
+assert(s.onlySuper() == "only", "Inherited method");
+assert(s.name() == "sub super", "Super call");

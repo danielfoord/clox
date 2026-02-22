@@ -1,0 +1,16 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+fun fib(n) {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+fun add(a, b) { return a + b; }
+assert(add(5, 5) == 10, "Function call");
+assert(fib(10) == 55, "Recursion (Fibonacci)");

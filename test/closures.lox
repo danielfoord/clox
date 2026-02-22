@@ -1,0 +1,20 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+fun makeCounter() {
+  var i = 0;
+  fun count() {
+    i = i + 1;
+    return i;
+  }
+  return count;
+}
+
+var counter = makeCounter();
+assert(counter() == 1, "Closure 1");
+assert(counter() == 2, "Closure 2");

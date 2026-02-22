@@ -1,0 +1,24 @@
+// Lox I/O Benchmark
+// Tests the performance of the 'print' statement and string handling.
+
+var start = clock();
+
+var payload = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ";
+payload = payload + payload; // 2x
+payload = payload + payload; // 4x
+payload = payload + payload; // 8x
+payload = payload + payload; // 16x
+
+print "Starting I/O benchmark...";
+
+for (var i = 0; i < 5000; i = i + 1) {
+  print payload;
+}
+
+var end = clock();
+
+print "---";
+print "I/O Benchmark complete.";
+print "Total payload lines printed: 5000";
+print "Elapsed time (seconds):";
+print end - start;

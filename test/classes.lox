@@ -1,0 +1,23 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+class Box {
+  init(item) {
+    this.item = item;
+  }
+  get() {
+    return this.item;
+  }
+}
+
+var b = Box("gold");
+assert(b.item == "gold", "Property access");
+assert(b.get() == "gold", "Method call with this");
+
+b.item = "silver";
+assert(b.get() == "silver", "Property assignment");

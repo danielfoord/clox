@@ -1,0 +1,15 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+assert(1 + 2 == 3, "Addition");
+assert(10 - 3 == 7, "Subtraction");
+assert(4 * 5 == 20, "Multiplication");
+assert(10 / 2 == 5, "Division");
+assert(-5 == 0 - 5, "Negation");
+assert(2 + 3 * 4 == 14, "Precedence");
+assert((2 + 3) * 4 == 20, "Grouping");

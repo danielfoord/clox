@@ -1,0 +1,17 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+var a = "outer";
+{
+  var a = "inner";
+  assert(a == "inner", "Shadowing");
+}
+assert(a == "outer", "Outer scope persistence");
+
+a = "assigned";
+assert(a == "assigned", "Global assignment");

@@ -1,0 +1,19 @@
+fun assert(condition, message) {
+  if (condition) {
+    print "PASS: " + message;
+  } else {
+    print "FAIL: " + message;
+  }
+}
+
+assert(true, "True is true");
+assert(!false, "Not false is true");
+assert(true and true, "And truth table 1");
+assert(!(true and false), "And truth table 2");
+assert(false or true, "Or truth table 1");
+assert(!(false or false), "Or truth table 2");
+assert(5 > 3, "Greater than");
+assert(2 < 4, "Less than");
+assert(5 >= 5, "Greater or equal");
+assert(3 <= 3, "Less or equal");
+assert(nil == nil, "Nil equality");
